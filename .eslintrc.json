@@ -1,8 +1,7 @@
 {
   "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended"
+    "airbnb-typescript",
+    "@react-native-community"
   ],
   "plugins": [ "@typescript-eslint", "react" ],
   "parser": "@typescript-eslint/parser",
@@ -14,22 +13,29 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
+  "root": true,
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/indent": [ "error", "tab" ],
     "@typescript-eslint/no-shadow": [ "error" ],
     "@typescript-eslint/no-use-before-define": [ "off" ],
-    "comma-dangle": [ "error", "always" ],
+    "array-bracket-spacing":  [ "error", "always" ],
+    "comma-dangle": [ "error", "always-multiline" ],
+    "computed-property-spacing":  [ "error", "never" ],
+    "indent": "off",
     "import/no-unresolved": 0,
     "import/extensions": [ "error", "never" ],
+    "object-curly-spacing": [ "error", "always" ],
     "no-shadow": "off",
     "no-use-before-define": "off",
+    "no-tabs": "off",
+    "prettier/prettier": 0,
     "react/jsx-filename-extension": [ 1, {
-      "extensions": [
-        ".ts",
-        ".tsx"
-      ]
+      "extensions": [ ".ts", ".tsx", ".js", ".jsx" ]
     } ],
+    "react/jsx-indent": [ 2, "tab" ],
+    "react/jsx-indent-props": [ 2, "tab" ],
     "react/prop-types": 0,
-    "space-in-brackets": [ "error", "always" ]
+    "semi": "error"
   }
 }
