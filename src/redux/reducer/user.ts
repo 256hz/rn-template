@@ -26,6 +26,3 @@ const INITIAL_STATE: UserState = {
 export const user = createReducer(INITIAL_STATE, builder => {
 	builder.addCase(editUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }));
 });
-	// .handleAction(editUserProperty(UserProperty.ID, 0).type, (state, { payload: { property, value } }) => ({ ...state, [property]: value }))
-	// .handleAction(editUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }))
-	// .handleAction(logOut, state => INITIAL_STATE)

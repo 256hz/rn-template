@@ -11,7 +11,7 @@ import {
 	Button,
 } from 'react-native';
 import { getUserId } from 'redux/selector';
-import { editUserProperty } from 'redux/action/user';
+import { editUserProperty, logIn } from 'redux/action/user';
 import { UserProperty } from 'redux/types/user';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { allState } from 'redux/selector/user';
@@ -25,6 +25,7 @@ export default () => {
 		console.log('HI');
 		console.log(aState);
 		dispatch(editUserProperty(UserProperty.ID, 666));
+		dispatch(logIn('user', 'password'));
 	};
 
 	return (

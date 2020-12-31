@@ -18,7 +18,10 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/indent": [ "error", "tab" ],
     "@typescript-eslint/no-shadow": [ "error" ],
-    "@typescript-eslint/no-unused-vars": [ "warn", { "args": "after-used", "ignoreRestSiblings": false } ],
+    "@typescript-eslint/no-unused-vars": [ "warn", {
+      "args": "after-used",
+      "ignoreRestSiblings": false
+    } ],
     "@typescript-eslint/no-use-before-define": [ "off" ],
     "array-bracket-spacing":  [ "error", "always" ],
     "comma-dangle": [ "error", "always-multiline" ],
