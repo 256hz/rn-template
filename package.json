@@ -8,7 +8,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
     "postinstall": "(cd ios && pod install)",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "typechecking": "tsc --noEmit"
   },
   "dependencies": {
     "@react-native-community/async-storage": "1.12.1",

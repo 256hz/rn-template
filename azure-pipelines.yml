@@ -1,0 +1,42 @@
+trigger:
+  branches:
+    include:
+    - main
+  tags:
+    include:
+    - v*
+
+pool:
+  vmImage: 'macos-latest'
+
+# variables:
+# - group: React Native App
+
+stages:
+- stage: JavaScriptBuild
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-18.04'
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '14.x'
+
+    - task: Npm@1
+      displayName: 'Run NPM install'
+      inputs:
+        command: custom
+        customCommand: install --ignore-scripts
+
+        # customRegistry: useFeed
+        # customFeed: airstreampkg
+
+    - script: npm run typechecking
+      displayName: 'Run TypeScript checks'
+
+    - script: npm run lint
+      displayName: 'Run ESLint'
+
+    # - script: npm run test
+    #   displayName: 'Run Jest Tests'
