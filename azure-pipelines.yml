@@ -29,9 +29,6 @@ stages:
         command: custom
         customCommand: install --ignore-scripts
 
-        # customRegistry: useFeed
-        # customFeed: airstreampkg
-
     - script: npm run typechecking
       displayName: 'Run TypeScript checks'
 
