@@ -1,0 +1,47 @@
+{
+  "extends": [
+    "airbnb-typescript",
+    "@react-native-community"
+  ],
+  "plugins": [ "@typescript-eslint", "react" ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "root": true,
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/indent": [ "error", "tab" ],
+    "@typescript-eslint/no-shadow": [ "error" ],
+    "@typescript-eslint/no-unused-vars": [ "warn", {
+      "args": "after-used",
+      "ignoreRestSiblings": false
+    } ],
+    "@typescript-eslint/no-use-before-define": [ "off" ],
+    "array-bracket-spacing":  [ "error", "always" ],
+    "comma-dangle": [ "error", "always-multiline" ],
+    "computed-property-spacing":  [ "error", "never" ],
+    "indent": "off",
+    "import/extensions": [ "error", "never" ],
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": "warn",
+    "object-curly-spacing": [ "error", "always" ],
+    "no-shadow": "off",
+    "no-tabs": "off",
+    "no-unused-vars": "off",
+    "no-use-before-define": "off",
+    "prettier/prettier": 0,
+    "react/jsx-filename-extension": [ 1, {
+      "extensions": [ ".ts", ".tsx", ".js", ".jsx" ]
+    } ],
+    "react/jsx-indent": [ 2, "tab" ],
+    "react/jsx-indent-props": [ 2, "tab" ],
+    "react/prop-types": 0,
+    "semi": "error"
+  }
+}

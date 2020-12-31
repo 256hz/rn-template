@@ -1,118 +1,83 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
+	SafeAreaView,
+	StyleSheet,
+	ScrollView,
+	View,
+	Text,
+	StatusBar,
+	Button,
 } from 'react-native';
+import 'react-native-gesture-handler';
 
 import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
+	Header,
+	LearnMoreLinks,
+	Colors,
+	DebugInstructions,
+	ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import getStore from 'redux/getStore';
+import { editUserProperty } from 'redux/action/user';
+import { UserProperty } from 'redux/types/user';
+import { getUserId } from 'redux/selector';
+import Test from '@screens/test';
 
-declare const global: {HermesInternal: null | {}};
+declare const global: {HermesInternal: null | any };
 
-const App = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+export const { store, persistor } = getStore();
+
+const App = () => (
+	<Provider store={store}>
+		<PersistGate loading={null} persistor={persistor()}>
+			<StatusBar barStyle="dark-content" />
+			<SafeAreaView>
+				<Test />
+			</SafeAreaView>
+		</PersistGate>
+	</Provider>
+);
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+	scrollView: {
+		backgroundColor: Colors.lighter,
+	},
+	engine: {
+		position: 'absolute',
+		right: 0,
+	},
+	body: {
+		backgroundColor: Colors.white,
+	},
+	sectionContainer: {
+		marginTop: 32,
+		paddingHorizontal: 24,
+	},
+	sectionTitle: {
+		fontSize: 24,
+		fontWeight: '600',
+		color: Colors.black,
+	},
+	sectionDescription: {
+		marginTop: 8,
+		fontSize: 18,
+		fontWeight: '400',
+		color: Colors.dark,
+	},
+	highlight: {
+		fontWeight: '700',
+	},
+	footer: {
+		color: Colors.dark,
+		fontSize: 12,
+		fontWeight: '600',
+		padding: 4,
+		paddingRight: 12,
+		textAlign: 'right',
+	},
 });
 
 export default App;
